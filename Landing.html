@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>هانـدز - صفحتنا التعريفية</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f9f9f9;
+    }
+    .hero {
+      position: relative;
+      padding: 100px 0;
+      text-align: center;
+      color: #000;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+                  url('hero.jpg') center center / cover no-repeat;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0.7;
+      z-index: -1;
+    }
+    .features {
+      padding: 50px 0;
+      background: linear-gradient(to bottom right, #ffffff, #f2f9ff);
+    }
+    .feature-box {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+    .signup {
+      padding: 50px 0;
+      background: linear-gradient(to bottom right, #e7f3ff, #d0e8ff);
+      border-top: 2px solid #d1e7ff;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #00b4d8, #0077b6);
+      border: none;
+      box-shadow: 0 4px 12px rgba(0, 183, 255, 0.4);
+    }
+    @media (max-width: 768px) {
+      form {
+        width: 90% !important;
+      }
+    }
+    .lang-toggle {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+    .btn-toggle {
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-toggle">
+    <button class="btn btn-outline-primary btn-toggle" onclick="switchToEnglish()">English</button>
+    <button class="btn btn-outline-secondary btn-toggle" onclick="switchToArabic()">العربية</button>
+  </div>
+
+  <div class="text-center mt-4">
+    <img src="logo.png" alt="شعار هاندز" style="max-width: 250px; height: auto;">
+  </div>
+
+  <div class="container-fluid hero">
+    <h1 id="hero-title" class="animate__animated animate__fadeInDown">مرحباً بك في هاندز</h1>
+    <p id="hero-desc" class="animate__animated animate__fadeInUp">تطبيق هاندز هو الحل الأمثل لجميع احتياجات خدمات المنزل. من السباكة والكهرباء إلى التنظيف والصيانة، نحن نوفر لك محترفين موثوقين بجودة عالية وسرعة استجابة.</p>
+    <a href="#signup" class="btn btn-primary btn-lg mt-3 animate__animated animate__fadeInUp" id="cta-button">انضم إلى قائمة الانتظار</a>
+  </div>
+
+  <div class="container features text-center">
+    <h2 id="features-title" class="mb-5">مميزات التطبيق</h2>
+    <div class="row">
+      <div class="col-md-4 feature-box">
+        <i class="bi bi-calendar-check-fill fs-1 text-primary mb-3"></i>
+        <h4 id="f1-title">حجز سهل وسريع</h4>
+        <p id="f1-desc">احجز الخدمة التي تحتاجها في ثوانٍ من خلال خطوات بسيطة.</p>
+      </div>
+      <div class="col-md-4 feature-box">
+        <i class="bi bi-geo-alt-fill fs-1 text-success mb-3"></i>
+        <h4 id="f2-title">تتبع مباشر</h4>
+        <p id="f2-desc">شاهد موقع الفني في الوقت الحقيقي واعرف موعد وصوله.</p>
+      </div>
+      <div class="col-md-4 feature-box">
+        <i class="bi bi-shield-lock-fill fs-1 text-danger mb-3"></i>
+        <h4 id="f3-title">دفع آمن</h4>
+        <p id="f3-desc">ادفع مباشرة من خلال التطبيق باستخدام وسائل دفع موثوقة وآمنة.</p>
+      </div>
+      <div class="col-md-6 feature-box">
+        <i class="bi bi-headset fs-1 text-info mb-3"></i>
+        <h4 id="f4-title">عن طريق الذكاء الاصطناعي سيتم اجابة تساؤل لديك</h4>
+        <p id="f4-desc">فريق الدعم جاهز لمساعدتك في أي وقت طوال أيام الأسبوع.</p>
+      </div>
+      <div class="col-md-6 feature-box">
+        <i class="bi bi-award-fill fs-1 text-warning mb-3"></i>
+        <h4 id="f5-title">محترفون معتمدون</h4>
+        <p id="f5-desc">نتعاون فقط مع فنيين معتمدين لضمان جودة الخدمة ورضاك التام.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container signup" id="signup">
+    <h2 class="text-center mb-4" id="signup-title">سجل اهتمامك</h2>
+    <form action="https://formspree.io/f/mnnpeppb" method="POST" class="w-50 mx-auto bg-white p-4 rounded shadow">
+      <div class="mb-3">
+        <label for="name" class="form-label" id="name-label">الاسم</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label" id="email-label">البريد الإلكتروني</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+      </div>
+      <button type="submit" class="btn btn-success w-100" id="submit-button">أرسل</button>
+    </form>
+  </div>
+
+  <footer class="text-center py-4 bg-dark text-white mt-5">
+    <p id="footer-text">&copy; 2025 هاندز. جميع الحقوق محفوظة.</p>
+  </footer>
+
+  <script>
+       function switchToEnglish() {
+      document.documentElement.lang = 'en';
+      document.documentElement.dir = 'ltr';
+      document.getElementById("hero-title").innerText = "Welcome to Handz";
+      document.getElementById("hero-desc").innerText = "Handz is your ultimate solution for all home service needs. From plumbing and electricity to cleaning and maintenance, we provide trusted professionals with high quality and fast response.";
+      document.getElementById("cta-button").innerText = "Join Waitlist";
+      document.getElementById("features-title").innerText = "App Features";
+      document.getElementById("f1-title").innerText = "Fast & Easy Booking";
+      document.getElementById("f1-desc").innerText = "Book the service you need in seconds through simple steps.";
+      document.getElementById("f2-title").innerText = "Live Tracking";
+      document.getElementById("f2-desc").innerText = "See the technician’s live location and arrival time.";
+      document.getElementById("f3-title").innerText = "Secure Payment";
+      document.getElementById("f3-desc").innerText = "Pay directly through the app using trusted and secure methods.";
+      document.getElementById("f4-title").innerText = "24/7 Support";
+      document.getElementById("f4-desc").innerText = "Our support team is ready to help anytime during the week.";
+      document.getElementById("f5-title").innerText = "Certified Professionals";
+      document.getElementById("f5-desc").innerText = "We work only with certified professionals to ensure quality and your satisfaction.";
+      document.getElementById("signup-title").innerText = "Sign Up";
+      document.getElementById("name-label").innerText = "Name";
+      document.getElementById("email-label").innerText = "Email";
+      document.getElementById("submit-button").innerText = "Submit";
+      document.getElementById("footer-text").innerText = "© 2025 Handz. All rights reserved.";
+    }
+
+    function switchToArabic() {
+      document.documentElement.lang = 'ar';
+      document.documentElement.dir = 'rtl';
+      document.getElementById("hero-title").innerText = "مرحباً بك في هاندز";
+      document.getElementById("hero-desc").innerText = "تطبيق هاندز هو الحل الأمثل لجميع احتياجات خدمات المنزل. من السباكة والكهرباء إلى التنظيف والصيانة، نحن نوفر لك محترفين موثوقين بجودة عالية وسرعة استجابة.";
+      document.getElementById("cta-button").innerText = "انضم إلى قائمة الانتظار";
+      document.getElementById("features-title").innerText = "مميزات التطبيق";
+      document.getElementById("f1-title").innerText = "حجز سهل وسريع";
+      document.getElementById("f1-desc").innerText = "احجز الخدمة التي تحتاجها في ثوانٍ من خلال خطوات بسيطة.";
+      document.getElementById("f2-title").innerText = "تتبع مباشر";
+      document.getElementById("f2-desc").innerText = "شاهد موقع الفني في الوقت الحقيقي واعرف موعد وصوله.";
+      document.getElementById("f3-title").innerText = "دفع آمن";
+      document.getElementById("f3-desc").innerText = "ادفع مباشرة من خلال التطبيق باستخدام وسائل دفع موثوقة وآمنة.";
+      document.getElementById("f4-title").innerText = "دعم فني متواصل";
+      document.getElementById("f4-desc").innerText = "فريق الدعم جاهز لمساعدتك في أي وقت طوال أيام الأسبوع.";
+      document.getElementById("f5-title").innerText = "محترفون معتمدون";
+      document.getElementById("f5-desc").innerText = "نتعاون فقط مع فنيين معتمدين لضمان جودة الخدمة ورضاك التام.";
+      document.getElementById("signup-title").innerText = "سجل اهتمامك";
+      document.getElementById("name-label").innerText = "الاسم";
+      document.getElementById("email-label").innerText = "البريد الإلكتروني";
+      document.getElementById("submit-button").innerText = "أرسل";
+      document.getElementById("footer-text").innerText = "&copy; 2025 هاندز. جميع الحقوق محفوظة.";
+    }
+  </script>
+</body>
+</html>
